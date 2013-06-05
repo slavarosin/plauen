@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:security="http://www.springframework.org/schema/security" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd">
+
+	<import resource="classpath:application-dao.xml" />
+	<import resource="classpath:application-context.xml" />
+	<import resource="classpath:application-context-quartz.xml" />
+	<import resource="classpath:application-context-security.xml" />
+	<import resource="classpath:application-validation.xml" />
+
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/plauen" />
+	<jee:jndi-lookup id="mailSession" jndi-name="mail/plauen" />
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="session" ref="mailSession" />
+	</bean>
+
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang" />
+	</bean>
+
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="et_EE" />
+	</bean>
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	</bean>
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="localeChangeInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="fortumoFilter" class="net.gobro.plauen.web.filter.IPFilter">
+		<property name="remoteIPs" value="${fortumo.addresses}" />
+	</bean>
+
+	<bean id="fortumoSignatureFilter" class="net.gobro.plauen.web.filter.FortumoSignatureFilter">
+		<property name="signatures">
+			<util:map key-type="java.lang.String" value-type="java.lang.String">
+				<!-- EE FOR PLAYER 1311 5,00 EEK -->
+				<entry key="22463760dca366bc034545fb0fade345" value="28b01b849508aa28447efcb89f8eb62b" />
+
+				<!-- EE FOR PLAYER 13011 10,00 EEK -->
+				<entry key="0417f77382729da6475b7b446e47987c" value="9cd3165314071d02b34271a950586585" />
+
+				<!-- EE FOR PLAYER 15330 15,00 EEK -->
+				<entry key="d03896c87871097ed471b389102d2d6d" value="9ee3d847da46c55428a081db4c3c9f2b" />
+
+				<!-- EE FOR PLAYER 13013 25,00 EEK -->
+                <entry key="38aeddb7bc69763a865ada28abc6cbb5" value="5d312f0f76f9daa014ce0247d99ce3cc" />
+
+                <!-- EE FOR PLAYER 13015 35,00 EEK -->
+                <entry key="31ea3866bc2a5a2788c91d9d9ed87d6c" value="5a1d6ac69a155f8e4814d041bef5a00e" />
+
+				<!-- LV TXT GIVE12 1897 0,75 LVL -->
+				<entry key="a189a21eab22534fafd5850df6aaec00" value="d55ab373282159d99cb53b27ff23a9dc" />
+
+				<!-- LV TXT GIVE21 1897 0,95 LVL -->
+				<entry key="44d48401a352ff338995c0b155316082" value="6fff9c4b3db74fb0546ed70b0ca650fe" />
+
+				<!-- LV TXT GIVE5 1897 0,35 LVL -->
+				<entry key="03e4df9268a921860a537ddad4fbf25d" value="38c68525545be2c0b179dc3a9a6af281" />
+
+				<!-- LT TXT GIVE12 1337 2,00 LTL -->
+				<entry key="3b849aa49de662ae8308ebfcd99db0dd" value="2ef9b71eefda88ad450de0e411cdce58" />
+
+				<!-- LT TXT GIVE21 1337 3,00 LTL -->
+				<entry key="6c5f72aa0962b32024922b53c9a7c4b3" value="f30fb3aef6df3936fcd0baf07b13e0eb" />
+
+				<!-- LT TXT GIVE5 1337 1,00 LTL -->
+				<entry key="ce0ea6f65eb4dd3f5dbf80b28e99f45a" value="89fd9c46a8b39d2929d9d459127dc4d1" />
+			</util:map>
+		</property>
+		<property name="serviceIdParameterName" value="${fortumo.serviceId.parameter.name}" />
+		<property name="signatureParameterName" value="${fortumo.signature.parameter.name}" />
+	</bean>
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<!-- 3 images of 60 Kb each -->
+		<property name="maxUploadSize" value="184320" />
+	</bean>
+
+	<bean id="exceptionResolver" class="net.gobro.plauen.web.spring.ExtendedMappingExceptionResolver">
+		<property name="errorLogCategory" value="net.gobro.plauen.web" />
+		<property name="defaultErrorView" value="error" />
+		<property name="exceptionAttribute" value="error" />
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.NullPointerException">error</prop>
+				<prop key="java.lang.Exception">error</prop>
+			</props>
+		</property>
+		<property name="ignoreExceptions">
+			<util:list>
+				<value>net.gobro.plauen.model.SMSRejectedException</value>
+			</util:list>
+		</property>
+	</bean>
+</beans>

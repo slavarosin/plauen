@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+	<Resource name="jdbc/plauen" auth="Container" type="javax.sql.DataSource" username="plauen" password="plauen" driverClassName="com.mysql.jdbc.Driver" maxIdle="2" maxWait="5000"
+		url="jdbc:mysql://127.0.0.1/plauen?useUnicode=true&amp;characterEncoding=UTF-8" maxActive="10" removeAbandoned="true" removeAbandonedTimeout="60" logAbandoned="false"
+		validationQuery="show variables like 'version'" connectionProperties="defaultNChar=true" />
+	<Resource name="mail/plauen" auth="Container" type="javax.mail.Session" mail.debug="false"
+		username="support@gobro.net"
+		password="picasso1"
+		mail.transport.protocol="smtp"
+		mail.smtp.socketFactory.port="465"
+		mail.smtp.socketFactory.class="javax.net.ssl.SSLSocketFactory"
+		mail.smtp.host="smtp.gmail.com"
+		mail.smtp.user="support@gobro.net"
+		mail.smtp.auth= "true"
+		mail.smtp.port= "465"
+		mail.smtp.starttls.enable="true"/>
+</Context>

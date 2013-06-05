@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.5.xsd">
+	<global-method-security secured-annotations="enabled" />
+	<http auto-config="true">
+		<intercept-url pattern="/j_spring_security_logout" access="ROLE_USER,ROLE_ADMIN" />
+		<intercept-url pattern="/do/user/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/do/game/create" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/game/edit" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/game/list" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/image/manage" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/image/delete" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/sms/bot" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/game/bot" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/game/bots" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/game/bots/points" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/send" access="ROLE_ADMIN" />
+		<intercept-url pattern="/do/game/view" access="IS_AUTHENTICATED_ANONYMOUSLY,ROLE_USER,ROLE_ADMIN" />
+		<intercept-url pattern="/do/country" access="IS_AUTHENTICATED_ANONYMOUSLY,ROLE_USER,ROLE_ADMIN" />
+		<intercept-url pattern="/do/user/forgotPassword*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY,ROLE_USER,ROLE_ADMIN" />
+		<form-login login-page="/do/user/login" default-target-url="/do/game/active" authentication-failure-url="/do/user/login?login_error=1" />
+		<logout logout-success-url="/do/country" />
+	</http>
+	<authentication-manager alias="authenticationManager" />
+	<authentication-provider user-service-ref="myUserDetailsService">
+		<password-encoder hash="md5" base64="false" />
+	</authentication-provider>
+	<!-- Automatically receives AuthenticationEvent messages -->
+	<beans:bean id="authenticationLoggerListener" class="org.springframework.security.event.authentication.LoggerListener" />
+	<beans:bean id="myUserDetailsService" class="net.gobro.plauen.web.security.UserDetailsService" />
+	<beans:bean class="org.springframework.security.providers.encoding.Md5PasswordEncoder" />
+</beans:beans>

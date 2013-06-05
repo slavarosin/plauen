@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+	<description>Contains definitions of services of business layer</description>
+	<context:property-placeholder location="classpath:plauen-default.properties, classpath*:plauen.properties" />
+	<context:annotation-config />
+	<context:component-scan base-package="net.gobro.plauen" />
+	<bean class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService" />
+	<bean id="supportedLanguagesService" class="net.gobro.plauen.service.impl.SupportedLanguagesServiceImpl">
+		<constructor-arg>
+			<util:map key-type="net.gobro.plauen.model.CountryEnum" value-type="java.util.LinkedList">
+				<entry key="EE">
+					<util:list value-type="net.gobro.plauen.model.LanguageEnum">
+						<value>et</value>
+						<value>ru</value>
+						<value>en</value>
+					</util:list>
+				</entry>
+				<!-- entry key="LV">
+					<util:list value-type="net.gobro.plauen.model.LanguageEnum">
+						<value>lv</value>
+						<value>ru</value>
+						<value>en</value>
+					</util:list>
+				</entry>
+				<entry key="LT">
+					<util:list value-type="net.gobro.plauen.model.LanguageEnum">
+						<value>lt</value>
+						<value>en</value>
+					</util:list>
+				</entry -->
+			</util:map>
+		</constructor-arg>
+	</bean>
+	<bean id="sessionLocaleResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+	<bean id="acceptHeaderLocaleResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver" />
+	<bean id="localeFilter" class="net.gobro.plauen.web.filter.LocaleFilter">
+		<property name="localeResolvers">
+			<util:list>
+				<ref local="sessionLocaleResolver" />
+				<ref local="acceptHeaderLocaleResolver" />
+			</util:list>
+		</property>
+		<property name="defaultLocale" value="et_EE" />
+	</bean>
+	<bean id="countryFilter" class="net.gobro.plauen.web.filter.CountryFilter" autowire="default">
+		<property name="supportedLanguagesService" ref="supportedLanguagesService" />
+	</bean>
+	<bean id="winnersService" class="net.gobro.plauen.service.impl.WinnersServiceImpl" autowire="default" />
+	<bean id="scoreService" class="net.gobro.plauen.service.impl.ScoreServiceImpl" autowire="default">
+		<constructor-arg>
+			<util:map key-type="net.gobro.plauen.model.CountryEnum" value-type="net.gobro.plauen.service.ScoreService">
+				<entry key="EE" value-ref="priceBasedScoreService" />
+				<entry key="LT" value-ref="keywordBasedScoreService" />
+				<entry key="LV" value-ref="keywordBasedScoreService" />
+			</util:map>
+		</constructor-arg>
+	</bean>
+	<bean id="priceBasedScoreService" class="net.gobro.plauen.service.impl.PriceBasedScoreServiceImpl" autowire="default" />
+	<bean id="keywordBasedScoreService" class="net.gobro.plauen.service.impl.KeywordBasedScoreServiceImpl" autowire="default" />
+	<bean id="chartService" class="net.gobro.plauen.service.impl.ChartServiceImpl" autowire="default">
+		<property name="scoreService" ref="scoreService" />
+	</bean>
+	<bean id="botService" class="net.gobro.plauen.service.impl.BotServiceImpl" autowire="default">
+		<property name="scoreService" ref="scoreService" />
+	</bean>
+	<bean id="winnersController" class="net.gobro.plauen.web.WinnersController" autowire="default">
+		<property name="numberOfWinners" value="2" />
+	</bean>
+	<bean id="statisticsService" class="net.gobro.plauen.service.impl.StatisticsServiceImpl" autowire="default"/>
+	<bean id="inactiveService" class="net.gobro.plauen.service.impl.InactiveServiceImpl" autowire="default">
+		<property name="scoreService" ref="scoreService" />
+	</bean>
+	<bean id="gameService" class="net.gobro.plauen.service.impl.GameServiceImpl" autowire="default">
+		<property name="maximumNumberOfPlayers" value="${maximumNumberOfPlayers}" />
+		<property name="scoreService" ref="scoreService" />
+	</bean>
+	<bean id="authenticationEventListener" class="net.gobro.plauen.web.security.AuthenticationEventListener" autowire="default"/>
+</beans>

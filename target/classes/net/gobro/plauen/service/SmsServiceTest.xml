@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="target/xsd/dataset.xsd">
+	<users id="1" email="admin@plauen.ee" first_name="first name" last_name="last name" login="admin" passwd="passwd" phone="1182" role="ADMIN" city="city" address="address" zip="zip" country="EE" />
+	<presents id="1" name="Present #1" comments="Description of present #1" price="999.99" />
+	<games id="1" presents_id="1" country="EE" activation_time="2008-12-01 00:00:00.0" start_time="2009-01-01 00:00:00.0" end_time="2009-01-02 00:00:00.0" />
+	<user_plays id="1" users_id="1" games_id="1" alias="123456" disabled="false" />
+	<!--sms id="1" country="EE" currency="EEK" user_plays_id="1" keyword="keyword" message="message" message_id="message_id" price="5.33" sender="1882" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-01 00:00:00.0" /-->
+</dataset>

@@ -1,0 +1,1 @@
+ALTER TABLE `user_plays` ADD COLUMN `disabled` BOOLEAN NOT NULL DEFAULT 0 AFTER `alias`;

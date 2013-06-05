@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="target/xsd/dataset.xsd">
+	<users id="1" email="user1@plauen.ee" first_name="first name" last_name="last name" login="user1" passwd="passwd" phone="1182" role="USER" city="city" address="address" zip="zip"
+		country="EE" />
+	<users id="2" email="user2@plauen.ee" first_name="first name" last_name="last name" login="user2" passwd="passwd" phone="1182" role="USER" city="city" address="address" zip="zip"
+		country="EE" />
+	<users id="3" email="user3@plauen.ee" first_name="first name" last_name="last name" login="user3" passwd="passwd" phone="1182" role="USER" city="city" address="address" zip="zip"
+		country="EE" />
+	<presents id="1" name="Present #1" comments="Description of present #1" price="999.99" />
+	<texts id="1" language="et" code="NAME" text="message" presents_id="1" />
+	<games id="1" presents_id="1" country="EE" activation_time="2008-12-15 12:00:00.0" start_time="2008-12-22 12:00:00.0" end_time="2008-12-29 12:00:00.0" />
+	<games id="2" presents_id="1" country="EE" activation_time="2008-12-16 12:00:00.0" start_time="2008-12-23 12:00:00.0" end_time="2008-12-30 12:00:00.0" />
+	<user_plays id="1" users_id="1" games_id="1" alias="1" disabled="false" />
+	<user_plays id="2" users_id="2" games_id="1" alias="2" disabled="false" />
+	<user_plays id="3" users_id="3" games_id="1" alias="3" disabled="false" />
+	<user_plays id="4" users_id="1" games_id="2" alias="4" disabled="false" />
+	<user_plays id="5" users_id="2" games_id="2" alias="5" disabled="false" />
+	<user_plays id="6" users_id="3" games_id="2" alias="6" disabled="false" />
+	<sms id="1" country="EE" currency="EEK" user_plays_id="1" keyword="keyword" message="message" message_id="message_id" price="5" sender="1882" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-22 12:15:00.0" />
+	<sms id="2" country="EE" currency="EEK" user_plays_id="1" keyword="keyword" message="message" message_id="message_id" price="10" sender="1882" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-22 13:15:00.0" />
+	<sms id="3" country="EE" currency="EEK" user_plays_id="1" keyword="keyword" message="message" message_id="message_id" price="15" sender="1882" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-22 14:15:00.0" />
+	<sms id="4" country="EE" currency="EEK" user_plays_id="2" keyword="keyword" message="message" message_id="message_id" price="35" sender="1882" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-22 15:15:00.0" />
+	<sms id="5" country="LV" currency="LVL" user_plays_id="2" keyword="FOR PLAYER35" message="message" message_id="message_id" price="1.25" sender="1882" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-22 16:15:00.0" />
+</dataset>

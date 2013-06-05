@@ -1,0 +1,1 @@
+ALTER TABLE `sms` ADD COLUMN `timestamp` timestamp NOT NULL;

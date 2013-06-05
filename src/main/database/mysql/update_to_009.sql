@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD COLUMN `notifications` int(6) unsigned NOT NULL default 1;

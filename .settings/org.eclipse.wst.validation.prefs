@@ -1,0 +1,14 @@
+#Sat Jan 10 21:50:19 EET 2009
+DELEGATES_PREFERENCE=delegateValidatorList
+USER_BUILD_PREFERENCE=enabledBuildValidatorListorg.eclipse.wst.wsi.ui.internal.WSIMessageValidator;org.eclipse.wst.common.componentcore.internal.ModuleCoreValidator;org.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;
+USER_MANUAL_PREFERENCE=enabledManualValidatorListorg.eclipse.wst.wsi.ui.internal.WSIMessageValidator;org.eclipse.wst.common.componentcore.internal.ModuleCoreValidator;org.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;
+USER_PREFERENCE=overrideGlobalPreferencestruedisableAllValidationfalseversion1.2.3.v200811101716
+eclipse.preferences.version=1
+override=true
+suspend=false
+vals/org.eclipse.jst.jsf.ui.JSFAppConfigValidator/global=TT01
+vals/org.eclipse.jst.jsp.core.JSPBatchValidator/global=FF01
+vals/org.eclipse.jst.jsp.core.JSPContentValidator/global=FF01
+vals/org.eclipse.php.ui.HTMLValidatorForPHP/global=FF01
+vals/org.eclipse.wst.html.ui.HTMLValidator/global=FF01
+vf.version=3

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="MAIL" class="log4j.gmail.GmailAppender">
+		<param name="threshold" value="error" />
+		<param name="Subject" value="Error" />
+		<param name="JndiName" value="mail/plauen" />
+		<param name="From" value="log4j@gobro.net" />
+		<param name="To" value="bugs@gobro.net" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p (%c:%M:%L) %-5x - %m%n" />
+		</layout>
+	</appender>
+	<appender name="DEBUG_FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="threshold" value="trace" />
+		<param name="File" value="${catalina.home}/logs/plauen-debug.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p (%c:%M:%L) %-5x - %m%n" />
+		</layout>
+	</appender>
+	<appender name="INFO_FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="threshold" value="info" />
+		<param name="File" value="${catalina.home}/logs/plauen-info.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<appender name="ERROR_FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="threshold" value="warn" />
+		<param name="File" value="${catalina.home}/logs/plauen-error.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="WARN" />
+			<param name="levelMin" value="FATAL" />
+		</filter>
+	</appender>
+	<logger name="org.acegisecurity">
+		<level value="INFO" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+	<logger name="com.sun.jndi">
+		<level value="INFO" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+	<logger name="org.apache.tiles">
+		<level value="INFO" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+	<logger name="org.apache.commons">
+		<level value="INFO" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+	<logger name="org.hibernate">
+		<level value="INFO" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+	<logger name="org.springframework">
+		<level value="INFO" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+	<logger name="net.sf">
+		<level value="INFO" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+	<logger name="org.quartz">
+		<level value="INFO" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+	<logger name="ee">
+		<level value="TRACE" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="MAIL" />
+	</logger>
+</log4j:configuration>

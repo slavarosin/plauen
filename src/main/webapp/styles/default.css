@@ -1,0 +1,479 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+.Small_text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #666666;
+	padding-top: 0px;
+}
+
+.Small_text_bold {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bold;
+	color: #666666;
+	padding-top: 0px;
+}
+
+a.menu:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: underline;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+a.menu:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: underline;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+a.menu:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFF00;
+	text-decoration: none;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+a.menu:active {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFF00;
+	text-decoration: none;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+a.red:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+a.red:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+a.red:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+a.red:active {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+a.white:link {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+a.white:visited {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+a.white:hover {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+a.white:active {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+a.gray:link {
+	color: #666666;
+	text-decoration: underline;
+}
+
+a.gray:visited {
+	color: #666666;
+	text-decoration: underline;
+}
+
+a.gray:hover {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+a.gray:active {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+a.black:link {
+	color: #000000;
+	text-decoration: underline;
+}
+
+a.black:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+
+a.black:hover {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+a.black:active {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+a.justlink:link {
+	text-decoration: underline;
+}
+
+a.justlink:visited {
+	text-decoration: underline;
+}
+
+a.justlink:hover {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+a.justlink:active {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+.blacktext12 {
+	color: #000000;
+	font-size: 12px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.blacktext16 {
+	color: #000000;
+	font-size: 16px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.whitetext10bold {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.whitetext12bold {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.whitetitle12 {
+	color: #FFFFFF;
+	margin-bottom: 3px;
+	font-weight: normal;
+	text-align: center;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.whitetext16bold {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.DateBig {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+	padding-right: 5px;
+}
+
+.HeaderBIG {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.usertable {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+	padding-right: 12px;
+	padding-left: 12px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+.verysmall {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+.MainText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+.MainTextBold {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.fadePic {
+	opacity: 0.3;
+}
+
+.date {
+	width: 100%;
+	vertical-align: middle;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.date .day {
+	background-image: url("../images/cloud_32_yellow.png");
+    text-align: center;
+	color: white;
+	width: 32px;
+	height: 28px;
+	background-repeat: no-repeat;
+	display: table-cell;
+}
+
+.date .dateInMonth {
+	text-align: left;
+	color: #666666;
+	font-size: 60%;
+	padding: 4pt;
+}
+
+.date #selected .day {
+	background-image: url("../images/cloud_46_red.png");
+	width: 56px;
+	height: 50px;
+	font-size: 140%;
+	padding-top: 8pt;
+	padding-bottom: 8pt;
+	text-align: center;
+	padding-left: 8pt;
+	padding-right: 25pt;
+}
+
+.date #selected .dateInMonth {
+	color: white;
+	width: 100%;
+	font-size: 100%;
+	padding: 0pt;
+	border-width: thin;
+	border-color: yellow;
+}
+
+.image {
+	text-align: center;
+}
+
+.bigimage {
+	width: 180px;
+	height: 270px;
+}
+
+.notAgreed {
+	background-color: #BCC6CA;
+}
+
+.agreed {
+	background-color: #73D5F4;
+}
+
+.errormessage {
+	color: red;
+}
+
+.errorfield {
+	color: yellow;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+}
+
+table#editGame legend {
+	color: white;
+	font-weight: bold;
+}
+
+.button_container {
+	display: table;
+}
+
+.button_s1 {
+	height: 33px;
+	width: 136px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: transparent url(../images/button_s1.png) no-repeat center
+		center;
+}
+
+.button_s1_over {
+	cursor: pointer;
+	height: 33px;
+	width: 136px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: transparent url(../images/button_s1_ol.png) no-repeat center
+		center;
+}
+
+.button_s1_text {
+	color: white;
+	font-family: Arial, Helvetica, SansSerif;
+	font-size: 18px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	margin: 0px;
+}
+
+.button_s2 {
+	height: 26px;
+	width: 108px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: transparent url(../images/button_s2.png) no-repeat center
+		center;
+}
+
+.button_s2_over {
+	cursor: pointer;
+	height: 26px;
+	width: 108px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: transparent url(../images/button_s2_ol.png) no-repeat center
+		center;
+}
+
+.button_s2_text {
+	color: white;
+	font-family: Arial, Helvetica, SansSerif;
+	font-size: 18px;
+}
+
+.button_s3 {
+	height: 26px;
+	width: 108px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: transparent url(../images/button_s3.png) no-repeat center
+		center;
+}
+
+.button_s3_over {
+	cursor: pointer;
+	height: 26px;
+	width: 108px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: transparent url(../images/button_s3_ol.png) no-repeat center
+		center;
+}
+
+.button_s3_text {
+	color: white;
+	font-family: Arial, Helvetica, SansSerif;
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.special {
+	font-weight: bold;
+	background-color: yellow;
+}
+
+.yourAlias,.registrationClosed {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+	padding-right: 5px;
+	padding-left: 5px;
+	text-align: center;
+}
+
+.price,.gameMembers {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #666666;
+	text-align: center;
+}
+
+.gray {
+	color: #666666;
+}

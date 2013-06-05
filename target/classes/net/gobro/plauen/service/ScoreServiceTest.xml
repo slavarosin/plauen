@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="target/xsd/dataset.xsd">
+	<users id="1" email="admin@plauen.ee" first_name="first name" last_name="last name" login="admin" passwd="passwd" phone="1182" role="ADMIN" city="city" address="address" zip="zip" />
+	<presents id="1" name="Present #1" comments="Description of present #1" price="999.99" />
+	<games id="1" presents_id="1" country="EE" activation_time="2008-12-01 00:00:00.0" start_time="2009-01-01 00:00:00.0" end_time="2009-01-02 00:00:00.0" />
+	<user_plays id="1" users_id="1" games_id="1" alias="123456" disabled="false" />
+	<score_rules id="1" country="EE" price="5" score="5" currency="EEK" keyword="FOR PLAYER" service_id="null" shortcode="null" />
+	<score_rules id="2" country="EE" price="10" score="12" currency="EEK" keyword="FOR PLAYER" service_id="null" shortcode="null" />
+	<score_rules id="3" country="EE" price="15" score="20" currency="EEK" keyword="FOR PLAYER" service_id="null" shortcode="null" />
+	<score_rules id="4" country="EE" price="35" score="50" currency="EEK" keyword="FOR PLAYER" service_id="null" shortcode="null" />
+	<score_rules id="5" country="LV" price="1" keyword="FOR PLAYER" score="5" currency="LVL" service_id="null" shortcode="null" />
+	<score_rules id="6" country="LV" price="2" keyword="FOR PLAYER10" score="12" currency="LVL" service_id="null" shortcode="null" />
+	<score_rules id="7" country="LV" price="3" keyword="FOR PLAYER15" score="20" currency="LVL" service_id="null" shortcode="null" />
+	<score_rules id="8" country="LV" price="4" keyword="FOR PLAYER35" score="50" currency="LVL" service_id="null" shortcode="null" />
+	<sms id="1" country="EE" currency="EEK" user_plays_id="1" keyword="FOR PLAYER" message="message" message_id="1" price="5" sender="5131010" service_id="service_id" shortcode="1770"
+		msg_status="OK" timestamp="2008-12-01 00:00:00.0" />
+	<sms id="2" country="EE" currency="EEK" user_plays_id="1" keyword="FOR PLAYER" message="message" message_id="2" price="10" sender="5131010" service_id="service_id" shortcode="1770"
+		msg_status="OK" timestamp="2008-12-01 00:00:00.0" />
+	<sms id="3" country="EE" currency="EEK" user_plays_id="1" keyword="FOR PLAYER" message="message" message_id="3" price="15" sender="5131010" service_id="service_id" shortcode="1770"
+		msg_status="OK" timestamp="2008-12-01 00:00:00.0" />
+	<sms id="4" country="EE" currency="EEK" user_plays_id="1" keyword="FOR PLAYER" message="message" message_id="4" price="35" sender="5131010" service_id="service_id" shortcode="1770"
+		msg_status="OK" timestamp="2008-12-01 00:00:00.0" />
+	<sms id="5" country="LV" currency="LVL" user_plays_id="1" keyword="FOR PLAYER" message="message" message_id="5" price="5" sender="5131010" service_id="service_id" shortcode="1770"
+		msg_status="OK" timestamp="2008-12-01 00:00:00.0" />
+	<sms id="6" country="LV" currency="LVL" user_plays_id="1" keyword="FOR PLAYER10" message="message" message_id="6" price="10" sender="5131010" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-01 00:00:00.0" />
+	<sms id="7" country="LV" currency="LVL" user_plays_id="1" keyword="FOR PLAYER15" message="message" message_id="7" price="15" sender="5131010" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-01 00:00:00.0" />
+	<sms id="8" country="LV" currency="LVL" user_plays_id="1" keyword="FOR PLAYER35" message="message" message_id="8" price="35" sender="5131010" service_id="service_id"
+		shortcode="1770" msg_status="OK" timestamp="2008-12-01 00:00:00.0" />
+</dataset>

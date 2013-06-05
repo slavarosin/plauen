@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="country" template="/WEB-INF/tiles/country.jsp" />
+	<definition name="language" template="/WEB-INF/tiles/language.jsp" />
+	<definition name="sms" template="/WEB-INF/tiles/sms.jsp" />
+	<definition name="submenu" template="/WEB-INF/tiles/submenu.jsp" />
+	<definition name="menu" template="/WEB-INF/tiles/menu.jsp" />
+	<definition name="layout" template="/WEB-INF/tiles/layout.jsp" />
+	<definition name="header" template="/WEB-INF/tiles/header.jsp" />
+	<definition name="footer" template="/WEB-INF/tiles/footer.jsp" />
+	<definition name="user/login/embedded" template="/WEB-INF/jsp/user/loginEmbedded.jsp" />
+	<definition name="error" template="/WEB-INF/jsp/error.jsp" />
+	<definition name="winners" template="/WEB-INF/jsp/winners.jsp" />
+	<definition name="ga" template="/WEB-INF/tiles/ga.jsp" />
+	<definition name="terms" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/terms.jsp" />
+	</definition>
+	<definition name="game/create" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/game/admin/create.jsp" />
+	</definition>
+	<definition name="game/edit" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/game/admin/edit.jsp" />
+	</definition>
+	<definition name="game/list" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/game/list.jsp" />
+	</definition>
+	<definition name="game/admin/list" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/game/admin/list.jsp" />
+	</definition>
+	<definition name="game/join" extends="layout"/>
+	<definition name="game/view" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/game/view.jsp" />
+	</definition>
+	<definition name="game/empty" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/game/empty.jsp" />
+	</definition>
+	<definition name="user/login" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/user/login.jsp" />
+	</definition>
+	<definition name="user/signup" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/user/signup.jsp" />
+	</definition>
+	<definition name="user/forgotPassword" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/user/forgotPassword.jsp" />
+	</definition>
+	<definition name="rules" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/rules.jsp" />
+	</definition>
+	<definition name="questions" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/questions.jsp" />
+	</definition>
+	<definition name="contacts" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/contacts.jsp" />
+	</definition>
+	<definition name="image/manage" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/image/manage.jsp" />
+	</definition>
+	<definition name="admin/send" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/admin/send.jsp" />
+	</definition>
+	<definition name="unsubscribed" template="/WEB-INF/jsp/unsubscribed.jsp" />
+</tiles-definitions>

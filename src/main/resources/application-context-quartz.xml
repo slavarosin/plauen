@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+	<bean id="inactiveJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="inactiveService" />
+		<property name="targetMethod" value="removeInactivePlayers" />
+		<property name="concurrent" value="false" />
+	</bean>
+	<bean id="winnersJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="winnersService" />
+		<property name="targetMethod" value="findWinners" />
+		<property name="concurrent" value="false" />
+	</bean>
+	<bean id="botAddJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="botService" />
+		<property name="targetMethod" value="addRandomBot" />
+		<property name="concurrent" value="false" />
+	</bean>
+	<bean id="botAddPointsJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="botService" />
+		<property name="targetMethod" value="addRandomPointsToRandomOne" />
+		<property name="concurrent" value="false" />
+	</bean>
+	<bean id="botAddPointsOnFinishJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="botService" />
+        <property name="targetMethod" value="addRandomPointsOnFinish" />
+        <property name="concurrent" value="false" />
+    </bean>
+	<bean id="dailyStatsJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="statisticsService" />
+        <property name="targetMethod" value="sendStats" />
+        <property name="arguments">
+            <list>
+                <value>true</value>
+            </list>
+        </property>
+        <property name="concurrent" value="false" />
+    </bean>
+    <bean id="hourStatsJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="statisticsService" />
+        <property name="targetMethod" value="sendStats" />
+        <property name="arguments">
+            <list>
+                <value>false</value>
+            </list>
+        </property>
+        <property name="concurrent" value="false" />
+    </bean>
+	<bean id="inactiveCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="inactiveJobDetail" />
+		<!-- run every day at 13 -->
+		<property name="cronExpression" value="0 1 20 * * ?"/>
+	</bean>
+	<bean id="winnersCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="winnersJobDetail" />
+		<!-- run every day at 13 -->
+		<property name="cronExpression" value="0 05 20 * * ?" />
+	</bean>
+	<bean id="botAddCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="botAddJobDetail" />
+		<!-- run every five minutes -->
+		<property name="cronExpression" value="0 0/20 * * * ?" />
+	</bean>
+	<bean id="botAddPointsCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="botAddPointsJobDetail" />
+		<!-- run every five minutes -->
+		<property name="cronExpression" value="0 0/5 * * * ?" />
+	</bean>
+	<bean id="botAddPointsOnFinishCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="botAddPointsOnFinishJobDetail" />
+        <!-- run every five minutes -->
+        <property name="cronExpression" value="0/15 50-59 19 * * ?" />
+    </bean>
+	<bean id="dailyStatsCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="dailyStatsJobDetail" />
+        <!-- run every five minutes -->
+        <property name="cronExpression" value="0 59 23 * * ?" />
+    </bean>
+    <bean id="hourStatsCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="hourStatsJobDetail" />
+        <!-- run every five minutes -->
+        <property name="cronExpression" value="0 59 * * * ?" />
+    </bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="inactiveCronTrigger" />
+				<ref bean="winnersCronTrigger" />
+				<ref bean="botAddPointsCronTrigger" />
+				<ref bean="botAddPointsOnFinishCronTrigger" />
+				<ref bean="botAddCronTrigger" />
+				<ref bean="dailyStatsCronTrigger" />
+				<!-- ref bean="hourStatsCronTrigger" /-->
+			</list>
+		</property>
+	</bean>
+</beans>
