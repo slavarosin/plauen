@@ -1,4 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="target/xsd/dataset.xsd">
-	<users id="1" email="admin@plauen.ee" first_name="first name" last_name="last name" login="admin" passwd="passwd" phone="1182" role="ADMIN" />
-</dataset>

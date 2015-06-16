@@ -1,8 +1,9 @@
-#Wed Jan 28 21:59:40 EET 2009
 eclipse.preferences.version=1
 encoding//docs/update_to_001.sql=ISO-8859-1
 encoding//docs/update_to_002.sql=ISO-8859-1
 encoding//src/main/database/mysql/update_to_002.sql=ISO-8859-1
 encoding//src/main/database/mysql/update_to_003.sql=ISO-8859-1
 encoding//src/main/database/mysql/update_to_004.sql=ISO-8859-1
+encoding//src/main/java=utf-8
 encoding//src/main/java/net/gobro/plauen/service/impl/BotServiceImpl.java=UTF-8
+encoding//src/test/java=utf-8

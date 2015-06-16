@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="target/xsd/dataset.xsd">
-	<presents id="1" name="Present #1" comments="Description of present #1" price="999.99" />
-	<texts id="1" language="et" code="NAME" text="message" presents_id="1" />
-</dataset>

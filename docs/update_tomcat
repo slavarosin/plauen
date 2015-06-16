@@ -1,8 +1,0 @@
-#!/bin/bash
-# update tomcat script
-
-cd tomcat/ROOT
-rm -Rf --interactive=never META-INF images styles WEB-INF index.jsp scripts
-unzip plauen.war
-killall -9 java
-service tomcat6 start
